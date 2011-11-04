@@ -1,0 +1,21 @@
+<?$sub = false;
+$i = 0;
+$total = count($fields);
+?>
+<?foreach($fields as $n=>$f):?>          
+<?$nm = Inflections::to_url($n)?>
+
+<?if($model->columns[$n][1] && ($s = $model->columns[$n][1]['sub']) && $s != $sub):?>
+  <?if($sub != false):?></div><?endif?>
+  <div class='<?=$s?> spliter'>
+  <?$sub = $s;?>
+<?endif?>
+
+<?if($f->widget != "HiddenInput"):?><div class='field field-<?=$nm?> field-<?=$tabhash?>-<?=$nm?> <?=$model_class?>-<?=$nm?> clearfix'><?endif?>
+
+<?=$f->render()?>
+<?if($f->widget != "HiddenInput"):?></div><?endif?>
+
+<?if($sub && ($i+1) == $total):?></div><?endif?>
+
+<?endforeach?>
