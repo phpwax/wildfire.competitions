@@ -1,3 +1,8 @@
-<?if($cms_content && $cms_content->competition_type):?>
+<?
+$competition_start_date = date("YmdHis", strtotime($cms_content->competition_start_date));
+$competition_end_date = date("YmdHis", strtotime($cms_content->competition_end_date));
+$now = date("YmdHis");
+?>
+<?if($cms_content && $cms_content->competition_type && (($competition_start_date <= $now && $competition_end_date > $now) || ($competition_start_date <=  && $competition_end_date < $competition_start_date) ):?>
 <?=partial("__".$cms_content->competition_type, array('cms_content'=>$cms_content, 'entry_model'=>$entry_model, 'comp_form'=>$comp_form)):?>
 <?endif?>
