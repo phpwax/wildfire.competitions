@@ -1,0 +1,5 @@
+<?
+class CompetitionController extends CompetitionController{
+  
+}
+?>
