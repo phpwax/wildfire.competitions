@@ -1,5 +1,5 @@
 <?
-class CompetitionController extends CompetitionController{
+class CompetitionController extends WildfireCompetitionController{
   
 }
 ?>
