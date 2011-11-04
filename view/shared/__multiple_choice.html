@@ -18,7 +18,7 @@
     
   </fieldset>
   <fieldset>
-    <p class='intro first_para'>Fill in your details below to enter this competition.</p>
+    <p class='competition_intro first_para'><?=$cms_content->competition_content?></p>
     <input type="hidden" name="<?=$entry_model->table?>[from_page]" value="<?=$cms_content->permalink?>">
     <div class='field clearfix'><?=$comp_form->name->render();?></div>
     <div class='field clearfix'><?=$comp_form->email->render();?></div>
