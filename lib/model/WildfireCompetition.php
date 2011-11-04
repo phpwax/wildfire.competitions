@@ -4,6 +4,7 @@ class WildfireCompetition extends WildfireContent{
 
   public function setup(){
     parent::setup();
+    $this->define("competition_item", "BooleanField", array('group'=>"competition"));
     $this->define("competition_title", "CharField", array('label'=>"Title (internal use)", 'group'=>"competition"));
     $this->define("competition_content", "TextField", array('label'=>"Introduction", 'group'=>"competition"));
     $this->define("competition_date_start", "DateTimeField", array('default'=>date("Y-m-d h:i:s"), 'output_format'=>"j F Y",'input_format'=> 'j F Y H:i', 'info_preview'=>1));
