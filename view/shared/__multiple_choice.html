@@ -4,14 +4,14 @@
     <?=$comp_form->errors();?>    
     <div class='question'>
       <h3>Question</h3>
-      <p class='first_para'><?=$cms_content->competition_question?></p>
+      <p class='first_para'><?=$cms_content->multiple_choice_question?></p>
       <input type="hidden" name="<?=$entry_model->table?>[question]" value="<?=$cms_content->multiple_choice_question?>">
     </div>
     <div class='answers'>
       <h3>Answers</h3>
       <div class='options'>
       <?foreach(array("a","b", "c") as $i=>$answer):?>
-      <div class='field clearfix checkbox_field'><span class='answer_letter answer-<?=$answer?>'><?=$answer?></span><input type="radio" name="<?=$entry_model->table?>[answer]" id="<?=$entry_model->table?>_answer_<?=$i?>" value="<?=$answer?>"<?if($comp_form->answer->value == $answer):?> checked="checked"<?endif?>><label for="<?=$entry_model->table?>_answer_<?=$i?>"><?=$cms_content->{"multiple_choice_option_a".$answer}?></label></div>
+      <div class='field clearfix checkbox_field'><span class='answer_letter answer-<?=$answer?>'><?=$answer?></span><input type="radio" name="<?=$entry_model->table?>[answer]" id="<?=$entry_model->table?>_answer_<?=$i?>" value="<?=$answer?>"<?if($comp_form->answer->value == $answer):?> checked="checked"<?endif?>><label for="<?=$entry_model->table?>_answer_<?=$i?>"><?=$cms_content->{"multiple_choice_option_".$answer}?></label></div>
       <?endforeach?>
       </div>
     </div>

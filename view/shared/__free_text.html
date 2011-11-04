@@ -4,8 +4,8 @@
     <?=$comp_form->errors();?>    
     <div class='question'>
       <h3>Question</h3>
-      <p class='first_para'><?=$cms_content->competition_question?></p>
-      <input type="hidden" name="<?=$entry_model->table?>[question]" value="<?=$cms_content->multiple_choice_question?>">
+      <p class='first_para'><?=$cms_content->free_text_question?></p>
+      <input type="hidden" name="<?=$entry_model->table?>[question]" value="<?=$cms_content->free_text_question?>">
     </div>
     <div class='answers'>
       <h3>Answer</h3>
