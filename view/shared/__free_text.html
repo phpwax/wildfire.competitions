@@ -1,0 +1,26 @@
+
+<form class='comp_form inline_form free_text_form' action="#comp_form" method="post" id="comp_form">
+  <fieldset class='question_and_answers clearfix'>
+    <?=$comp_form->errors();?>    
+    <div class='question'>
+      <h3>Question</h3>
+      <p class='first_para'><?=$cms_content->competition_question?></p>
+      <input type="hidden" name="<?=$entry_model->table?>[question]" value="<?=$cms_content->multiple_choice_question?>">
+    </div>
+    <div class='answers'>
+      <h3>Answer</h3>
+      <div class='competition_answer field clearfix'>
+      <?$comp_form->answer->render();?>
+      </div>
+    </div>    
+  </fieldset>
+  <fieldset>
+    <p class='competition_intro first_para'><?=$cms_content->competition_content?></p>
+    <input type="hidden" name="<?=$entry_model->table?>[from_page]" value="<?=$cms_content->permalink?>">
+    <div class='field clearfix'><?=$comp_form->name->render();?></div>
+    <div class='field clearfix'><?=$comp_form->email->render();?></div>
+    <div class='field clearfix dob'><?=$comp_form->date_of_birth->render();?></div>
+    <div class='field clearfix'><?=$comp_form->telephone->render();?></div>
+    <input type="submit" class='submit_button button' name='site[submit]' value='Submit your entry'>
+  </fieldset>
+</form>
