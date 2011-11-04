@@ -6,6 +6,8 @@ class WildfireCompetition extends WildfireContent{
     parent::setup();
     $this->define("competition_title", "CharField", array('label'=>"Title (internal use)", 'group'=>"competition"));
     $this->define("competition_content", "TextField", array('label'=>"Introduction", 'group'=>"competition"));
+    $this->define("competition_date_start", "DateTimeField", array('default'=>date("Y-m-d h:i:s"), 'output_format'=>"j F Y",'input_format'=> 'j F Y H:i', 'info_preview'=>1));
+		$this->define("competition_date_end", "DateTimeField", array('default'=>date("Y-m-d h:i:s",mktime(0,0,0, date("m"), date("j"), date("y")-10 )), 'output_format'=>"j F Y", 'input_format'=> 'j F Y H:i','info_preview'=>1));
 
     if(!$comp_fields = Config::get("competition/fields")){
       $comp_fields = array(
@@ -28,6 +30,8 @@ class WildfireCompetition extends WildfireContent{
     foreach($comp_fields as $type=>$config) foreach($config as $field) $this->define($field['name'], $field['type'], $field['options']);
         
   }
+  
+
 
 }
 ?>
