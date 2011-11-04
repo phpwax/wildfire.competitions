@@ -1,0 +1,3 @@
+<?if($cms_content && $cms_content->competition_type):?>
+<?=partial("__".$cms_content->competition_type, array('cms_content'=>$cms_content, 'entry_model'=>$entry_model, 'comp_form'=>$comp_form)):?>
+<?endif?>
