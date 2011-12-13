@@ -1,4 +1,3 @@
-
 <form class='comp_form inline_form free_text_form' action="#comp_form" method="post" id="comp_form">
   <fieldset class='question_and_answers clearfix'>
     <?=$comp_form->errors();?>    
@@ -23,4 +22,10 @@
     <div class='field clearfix'><?=$comp_form->telephone->render();?></div>
     <input type="submit" class='submit_button button' name='site[submit]' value='Submit your entry'>
   </fieldset>
+  <?if($cms_content && $cms_content->competition_terms):?>
+  <fieldset class='terms_and_conditions' id='competition_terms_and_conditions'>
+    <h4>Terms &amp; Conditions</h4>
+    <?=CmsTextFilter::filter("before_output", $cms_content->competition_terms);?>
+  </fieldset>
+  <?endif?>
 </form>
