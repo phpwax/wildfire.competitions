@@ -8,7 +8,7 @@ WaxEvent::add("wildfire_dynamic_content.setup", function(){
   $obj->define("competition_item", "BooleanField", array('group'=>"competition"));
   $obj->define("competition_content", "TextField", array('label'=>"Introduction", 'group'=>"competition"));
   $obj->define("competition_date_start", "DateTimeField", array('default'=>date("Y-m-d h:i:s"), 'output_format'=>"j F Y",'input_format'=> 'j F Y H:i', 'group'=>'competition'));
-	$obj->define("competition_date_end", "DateTimeField", array('default'=>date("Y-m-d h:i:s",mktime(0,0,0, date("m"), date("j"), date("y")-10 )), 'output_format'=>"j F Y", 'input_format'=> 'j F Y H:i','group'=>'competition'));
+  $obj->define("competition_date_end", "DateTimeField", array('default'=>date("Y-m-d h:i:s",mktime(0,0,0, date("m"), date("j"), date("y")-10 )), 'output_format'=>"j F Y", 'input_format'=> 'j F Y H:i','group'=>'competition'));
 	
   if(!$comp_fields = Config::get("competition/fields")){
     $comp_fields = array(
@@ -29,6 +29,7 @@ WaxEvent::add("wildfire_dynamic_content.setup", function(){
   
   foreach($comp_fields as $type=>$config) foreach($config as $field) $obj->define($field['name'], $field['type'], $field['options']);
   
+  $obj->define("competition_terms", "TextField", array('label'=>"Terms and Conditions", 'group'=>"competition"));
 });
 
 ?>
