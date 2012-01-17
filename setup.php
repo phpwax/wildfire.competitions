@@ -1,9 +1,14 @@
 <?
 CMSApplication::register_module("competitionentry", array("display_name"=>"Competition Entries", "link"=>"/admin/competitionentry/"));
 
+//find the content model class and set a define
+if(!defined("CONTENT_MODEL")){
+  $con = new AdminContentController(false, false);
+  define("CONTENT_MODEL", $con->model_class);
+}
 
 //add in the custom model setup for the competition
-WaxEvent::add("wildfire_dynamic_content.setup", function(){
+WaxEvent::add(CONTENT_MODEL.".setup", function(){
   $obj = WaxEvent::data();
   $obj->define("competition_item", "BooleanField", array('group'=>"competition"));
   $obj->define("competition_content", "TextField", array('label'=>"Introduction", 'group'=>"competition"));
